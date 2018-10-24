@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import Series from '../Series/Series.js';
 
 export default class Init extends React.Component {
     render() {
@@ -9,9 +10,8 @@ export default class Init extends React.Component {
               <Text style={styles.text}>Sexflix</Text>
             </View>
 
-            <ScrollView>
-              <Text style={styles.text}>Open up App.js to start working on your ass!</Text>
-            </ScrollView>
+            <Series />
+
           </View>
         );
       }
