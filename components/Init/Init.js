@@ -1,8 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View, ScrollView } from 'react-native';
+import { Text, Image, View } from 'react-native';
+
+import styles from './Styles.js';
 import Series from '../Series/Series.js';
 
 export default class Init extends React.Component {
+
+  constructor (props) {
+    super(props);
+  }
+
     render() {
         return (
           <View style={styles.container}>
@@ -10,31 +17,9 @@ export default class Init extends React.Component {
               <Image style={styles.logo} source={require("../../assets/logo.png")} />
             </View>
 
-            <Series />
+            <Series navigation={this.props.navigation} />
 
           </View>
         );
       }
 }
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#141414',
-    },
-    topBar:{
-      marginTop: 25,
-      height: 50,
-      alignItems: 'center',
-      borderBottomColor: 'white',
-      borderBottomWidth: StyleSheet.hairlineWidth
-    },
-    text: {
-      color: "white"
-    },
-    logo: {
-      width: 120,
-      height:30
-    }
-  });
-  
