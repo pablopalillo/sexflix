@@ -6,6 +6,7 @@ export default  StyleSheet.create({
         width:null
     },
     title: {
+        marginTop: 10,
         fontSize: 30,
         fontWeight: 'bold',
         color: "white",

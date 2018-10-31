@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text, Image, View } from 'react-native';
 
+import Chapters from '../Chapters/Chapters';
+
 import global from '../Share/Global.js';
 import Styles from './Styles.js';
 
@@ -17,6 +19,8 @@ export default class Serie extends React.Component {
                 <Image style={Styles.serieImage} source={require("../../assets/images/narcos.jpg")} />
                 <Text style={Styles.title}>Narcos</Text>
             </View>
+
+            <Chapters />
 
           </View>
         );
