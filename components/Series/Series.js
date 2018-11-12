@@ -15,13 +15,22 @@ export default class Series extends React.Component {
         return(
             <ScrollView style={Styles.series}>
                 <View style={Styles.serie}>
-                    <TouchableOpacity onPress={() => navigate('Serie')} >
+                    <TouchableOpacity onPress={() => { navigate('Serie', { 
+                                                        nav: this.props.navigation,
+                                                        });
+                                                }}>
+
                         <Text style={Styles.text}>Narcos</Text>
                         <Image style={Styles.serieImage} source={require("../../assets/images/narcos.jpg")} />
+
                     </TouchableOpacity>
                 </View>
                 <View style={Styles.serie}>
-                    <TouchableOpacity onPress={() => navigate('Serie')} >
+                    <TouchableOpacity onPress={() => { navigate('Serie', { 
+                                                         nav: this.props.navigation,
+                                                        });
+                                                }}>
+
                         <Text style={Styles.text}>Narcos</Text>
                         <Image style={Styles.serieImage} source={require("../../assets/images/narcos.jpg")} />
                     </TouchableOpacity>

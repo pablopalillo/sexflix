@@ -1,25 +1,54 @@
 import React from 'react';
-import { Text, ScrollView, Image, TouchableOpacity, FlatList } from 'react-native';
+import 
+{ Text, 
+ View,
+ ScrollView,
+ Image,
+ TouchableOpacity,
+ FlatList,
+ ActivityIndicator 
+} from 'react-native';
 
+import localData from '../../storage/database.json';
 import Styles from './Styles.js';
+import { createStackNavigator } from 'react-navigation';
 
 export default class Chapters extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = { isLoading: true, data: null }
+    }
+    
+    
+    getChapters() {
+
+        let response = null;
+
+        try {
+            response = localData;
+        } catch (error) {
+            console.error(error);
+        }
+
+        return response;
+    }
+
+    componentDidMount() {
+        this.setState({
+            isLoading : false,
+            data: this.getChapters(),
+        });
+    }
+
     render() {
+        const { navigate } = this.props.navigation;
         return(
             <ScrollView>
             <FlatList
-              data={[
-                {key: '1', title: 'Capitulo 1'},
-                {key: '2', title: 'Capitulo 2'},
-                {key: '3', title: 'Capitulo 3'},
-                {key: '4', title: 'Capitulo 4'},
-                {key: '5', title: 'Capitulo 5'},
-                {key: '6', title: 'Capitulo 6'},
-                {key: '7', title: 'Capitulo 7'},
-                {key: '8', title: 'Capitulo 8'},
-              ]}
+              data={this.state.data}
               renderItem={({item}) => 
-                            <TouchableOpacity style={Styles.chapters}>
+                            <TouchableOpacity onPress={() => navigate('Chapter')}  style={Styles.chapters}>
                                 <Image style={Styles.play} source={require("../../assets/play.png")} />
                                 <Text style={Styles.item}>{item.title}</Text>
                             </TouchableOpacity>
