@@ -48,7 +48,7 @@ export default class Chapters extends React.Component {
             <FlatList
               data={this.state.data}
               renderItem={({item}) => 
-                            <TouchableOpacity onPress={() => navigate('Chapter')}  style={Styles.chapters}>
+                            <TouchableOpacity onPress={() => navigate('Chapter', {chapterId: item.key})}  style={Styles.chapters}>
                                 <Image style={Styles.play} source={require("../../assets/play.png")} />
                                 <Text style={Styles.item}>{item.title}</Text>
                             </TouchableOpacity>

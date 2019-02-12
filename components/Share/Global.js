@@ -18,6 +18,15 @@ export default  StyleSheet.create({
     logo: {
       width: 120,
       height:30
+    },
+    barIcon: {
+      width: 24,
+      height: 24
+    },
+    textContent: {
+      color: "white",
+      padding: 15,
+      textAlign: "justify",
     }
 });
   
